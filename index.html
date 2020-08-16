@@ -5,11 +5,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLibrary</title>
+    <link rel="icon" type="image/png" href="icons/fav.png" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-
+    <div class="container">
+        <div class="card">
+            <div class="card__inputs">
+                <h1 class="card__heading">
+                    Add Book
+                </h1>
+                <label for="" class="card__title">Title</label>
+                <input id="title" type="text" class="card__input">
+                <label for="" class="card__author">Author</label>
+                <input id="author" type="text" class="card__input">
+                <label for="" class="card__id">id</label>
+                <input id="id" type="text" class="card__input">
+                <div class="card__submit">Submit</div>
+            </div>
+        </div>
+        <div class="card">
+            <table class="card__output">
+                <thead class="card__head">
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Id</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="card__list">
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>
+                            <div class="card__delete"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="contact">
+        <div class="contact__title">You can find me here!</div>
+        <div class="contact__links">
+            <div class="contact__item">
+                <a href="https://github.com/Vandrosov99"><img src="./icons/github.png" alt=""></a>
+            </div>
+            <div class="contact__item">
+                <a href="https://www.linkedin.com/in/volodymyr-androsov-3860921a3/"><img src="./icons/linkedin.png"
+                        alt=""></a>
+            </div>
+            <div class="contact__item">
+                <a href="https://www.instagram.com/v_andrsv/?hl=uk"><img src="./icons/instagram.png" alt=""></a>
+            </div>
+            <div class="contact__item">
+                <a href="https://t.me/Shotz1k"><img src="./icons/telegram.png" alt=""></a>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="scripts/app.js"></script>
 
