@@ -1,0 +1,24 @@
+{
+  "name": "booklibrary",
+  "version": "1.0.0",
+  "description": "Если первый раз\r 1) install node (node -v , npm - v)\r 2) npm init \r 3) npm i gulp-cli -g\r 4) npm install --save-dev gulp gulp-sass browser-sync\r 5) gulp style(один раз запуск для инициализации файлов)\r 6) gulp watch.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vandrosov99/bookLibrary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vandrosov99/bookLibrary/issues"
+  },
+  "homepage": "https://github.com/Vandrosov99/bookLibrary#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0"
+  }
+}
