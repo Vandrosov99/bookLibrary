@@ -13,10 +13,23 @@ body {
     color: #222;
 }
 
+
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 21px;
+    .red-alert{
+        background: red;
+        padding:10px 20px;
+        text-align:center;
+        border-radius:10px;
+    }
+    .green-alert{
+        background: rgb(7, 150, 19);
+        padding:10px 20px;
+        text-align:center;
+        border-radius:10px;
+    }
 }
 
 .card {
@@ -50,7 +63,15 @@ body {
         border: 0.5px solid rgb(197, 197, 197);
         margin-bottom: 10px;
 
-
+        // &.red-alert{
+        //     border: 0.5px solid rgb(221, 15, 15) !important;
+        //     &:focus {
+        //         border: none;
+        //         outline: red;
+        //         box-shadow: 0 0 0 0px rgb(221, 15, 15);
+        //         border-radius: 5px;
+        //     }
+        // }
         &:focus {
             border: none;
             outline: red;

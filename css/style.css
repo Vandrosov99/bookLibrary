@@ -15,6 +15,16 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 21px; }
+  .container .red-alert {
+    background: red;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 10px; }
+  .container .green-alert {
+    background: #079613;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 10px; }
 
 .card {
   margin-top: 20px;
