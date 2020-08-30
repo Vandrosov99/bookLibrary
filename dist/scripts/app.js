@@ -11,72 +11,72 @@ let card = document.querySelector('.card');
 
 
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     let books;
     if (localStorage.getItem('books') === null) {
         books = [];
     } else {
         books = JSON.parse(localStorage.getItem('books'));
     }
-    
+
     books.forEach(function (book) {
         createBook(book);
     });
 });
 
 
-cardList.addEventListener('click',function(e){
-    if(e.target.classList.contains('card__delete')){
+cardList.addEventListener('click', function (e) {
+    if (e.target.classList.contains('card__delete')) {
         let id = e.target.parentElement.parentElement.cells[2].innerText
-      
+
         let lc = getBooksFromLC();
-        lc.forEach(function(book,index){
-            if(book.id == id){
+        lc.forEach(function (book, index) {
+            if (book.id == id) {
                 e.target.parentNode.parentNode.remove();
-                lc.splice(index,1);
+                lc.splice(index, 1);
             }
         })
         localStorage.setItem('books', JSON.stringify(lc));
 
     };
 })
-btn_sbmt.addEventListener('click',function(){
+btn_sbmt.addEventListener('click', function () {
     titleV = title.value;
     authorV = author.value;
     idV = id.value;
 
-    if(titleV == "" || authorV == "" || idV == ""){
-        showAlert("Please check your numbers",false);
-    }else{
+    if (titleV == "" || authorV == "" || idV == "") {
+        showAlert("Please check your numbers", false);
+    } else {
         let flag = 0;
         let books = getBooksFromLC();
-        books.forEach(function(book){
-            if(book.id == idV){
+        books.forEach(function (book) {
+            if (book.id == idV) {
                 flag++;
-                return false ;
+                return false;
             }
         })
-        if(flag){
-            showAlert("this Id is already added",false)
-        }else{
-        const book = {
-            title:titleV,
-            author:authorV,
-            id:idV
-        }
-        // check if id already in lc
+        if (flag) {
+            showAlert("this Id is already added", false)
+        } else {
+            const book = {
+                title: titleV,
+                author: authorV,
+                id: idV
+            }
+            // check if id already in lc
 
-        storeBooksToLocalStorage(book);
-        showAlert("Book added to list",true)
-        createBook(book);
-    }
+            storeBooksToLocalStorage(book);
+            showAlert("Book added to list", true)
+            createBook(book);
+        }
         clearField();
 
     }
 });
 
 
-function createBook(book){
+function createBook(book) {
     const row = document.createElement('tr');
     row.innerHTML = `
     <td>${book.title}</td>
@@ -89,33 +89,34 @@ function createBook(book){
     cardList.appendChild(row);
 }
 
-function clearField(){
+function clearField() {
     title.value = "";
     author.value = "";
     id.value = "";
 }
-function showAlert(msg,isGood){
 
-    if(document.querySelector('.red-alert') !==null){
+function showAlert(msg, isGood) {
+
+    if (document.querySelector('.red-alert') !== null) {
         document.querySelector('.red-alert').remove();
     }
-    if(document.querySelector('.green-alert') !== null){
+    if (document.querySelector('.green-alert') !== null) {
         document.querySelector('.green-alert').remove();
-    }  
+    }
     const div = document.createElement('div');
     div.className = isGood ? "green-alert" : "red-alert";
-    div.innerHTML=`${msg}`
-    container.insertBefore(div,card);
-    setTimeout(clearAlert,3000)
+    div.innerHTML = `${msg}`
+    container.insertBefore(div, card);
+    setTimeout(clearAlert, 3000)
 }
 
-function clearAlert(){
-    if(document.querySelector('.red-alert') !==null){
+function clearAlert() {
+    if (document.querySelector('.red-alert') !== null) {
         document.querySelector('.red-alert').remove();
     }
-    if(document.querySelector('.green-alert') !== null){
+    if (document.querySelector('.green-alert') !== null) {
         document.querySelector('.green-alert').remove();
-    }   
+    }
 }
 
 function storeBooksToLocalStorage(book) {
@@ -129,12 +130,35 @@ function storeBooksToLocalStorage(book) {
     localStorage.setItem('books', JSON.stringify(books));
 }
 
-function getBooksFromLC(){
+function getBooksFromLC() {
     let books;
     if (localStorage.getItem('books') === null) {
         books = [];
     } else {
         books = JSON.parse(localStorage.getItem('books'));
-    }   
+    }
     return books;
+}
+
+
+
+let searchText = document.querySelector('#search');
+
+searchText.addEventListener('keyup', filterBooks);
+
+function filterBooks(e) {
+
+    const text = e.target.value.toLowerCase();
+
+
+    const books = cardList.children;
+    Array.from(books).forEach(function (book) {
+        const item = book.cells[2].innerText;
+        if (item.toLowerCase().indexOf(text) != -1) {
+            book.style.display = 'table-row';
+        } else {
+            book.style.display = 'none';
+        }
+    })
+
 }
